@@ -1,0 +1,135 @@
+E # 0 t 0 m 1 ce -1 msg -1
+SB v 1286 rid Tictoc12-0-20201016-15:42:54-18216 b 1000
+KF p -1 c "" s ""
+MC id 1 c omnetpp::cModule t Tictoc12 n Tictoc12 cm 1
+MS id 1 d ""
+MC id 2 c Txc12 t Txc12 pid 1 n tic[0]
+MS id 2 d i=block/routing
+MC id 3 c Txc12 t Txc12 pid 1 n tic[1]
+MS id 3 d i=block/routing
+MC id 4 c Txc12 t Txc12 pid 1 n tic[2]
+MS id 4 d i=block/routing
+MC id 5 c Txc12 t Txc12 pid 1 n tic[3]
+MS id 5 d i=block/routing
+MC id 6 c Txc12 t Txc12 pid 1 n tic[4]
+MS id 6 d i=block/routing
+MC id 7 c Txc12 t Txc12 pid 1 n tic[5]
+MS id 7 d i=block/routing
+GC m 2 g 1048576 n gate$i i 0 o 0
+GC m 2 g 1572864 n gate$o i 0 o 1
+GC m 3 g 1048576 n gate$i i 0 o 0
+GC m 3 g 1572864 n gate$o i 0 o 1
+CC sm 2 sg 1572864 dm 3 dg 1048576
+CS sm 2 sg 1572864 d ""
+CC sm 3 sg 1572864 dm 2 dg 1048576
+CS sm 3 sg 1572864 d ""
+GC m 3 g 1048577 n gate$i i 1 o 0
+GC m 3 g 1572865 n gate$o i 1 o 1
+GC m 4 g 1048576 n gate$i i 0 o 0
+GC m 4 g 1572864 n gate$o i 0 o 1
+CC sm 3 sg 1572865 dm 4 dg 1048576
+CS sm 3 sg 1572865 d ""
+CC sm 4 sg 1572864 dm 3 dg 1048577
+CS sm 4 sg 1572864 d ""
+GC m 3 g 1048578 n gate$i i 2 o 0
+GC m 3 g 1572866 n gate$o i 2 o 1
+GC m 6 g 1048576 n gate$i i 0 o 0
+GC m 6 g 1572864 n gate$o i 0 o 1
+CC sm 3 sg 1572866 dm 6 dg 1048576
+CS sm 3 sg 1572866 d ""
+CC sm 6 sg 1572864 dm 3 dg 1048578
+CS sm 6 sg 1572864 d ""
+GC m 5 g 1048576 n gate$i i 0 o 0
+GC m 5 g 1572864 n gate$o i 0 o 1
+GC m 6 g 1048577 n gate$i i 1 o 0
+GC m 6 g 1572865 n gate$o i 1 o 1
+CC sm 5 sg 1572864 dm 6 dg 1048577
+CS sm 5 sg 1572864 d ""
+CC sm 6 sg 1572865 dm 5 dg 1048576
+CS sm 6 sg 1572865 d ""
+GC m 6 g 1048578 n gate$i i 2 o 0
+GC m 6 g 1572866 n gate$o i 2 o 1
+GC m 7 g 1048576 n gate$i i 0 o 0
+GC m 7 g 1572864 n gate$o i 0 o 1
+CC sm 6 sg 1572866 dm 7 dg 1048576
+CS sm 6 sg 1572866 d ""
+CC sm 7 sg 1572864 dm 6 dg 1048578
+CS sm 7 sg 1572864 d ""
+MB sm 1 tm 2 m initialize(0)
+CM id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe -1
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 0
+ES t 0
+ME
+MB sm 1 tm 3 m initialize(0)
+ME
+MB sm 1 tm 4 m initialize(0)
+ME
+MB sm 1 tm 5 m initialize(0)
+ME
+MB sm 1 tm 6 m initialize(0)
+ME
+MB sm 1 tm 7 m initialize(0)
+ME
+
+E # 1 t 0 m 2 ce 0 msg 1
+- INFO:Forwarding message (omnetpp::cMessage)tic-0 on gate[0]
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 1
+SH sm 2 sg 1572864 pd 0.1
+ES t 0.1
+CL id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 1 cid 2
+
+E # 2 t 0.1 m 3 ce 1 msg 1
+- INFO:Forwarding message (omnetpp::cMessage)tic-0 on gate[1]
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 2
+SH sm 3 sg 1572865 pd 0.1
+ES t 0.2
+CL id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 2 cid 2
+
+E # 3 t 0.2 m 4 ce 2 msg 1
+- INFO:Forwarding message (omnetpp::cMessage)tic-0 on gate[0]
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 3
+SH sm 4 sg 1572864 pd 0.1
+ES t 0.3
+CL id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 3 cid 2
+
+E # 4 t 0.3 m 3 ce 3 msg 1
+- INFO:Forwarding message (omnetpp::cMessage)tic-0 on gate[1]
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 4
+SH sm 3 sg 1572865 pd 0.1
+ES t 0.4
+CL id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 4 cid 2
+
+E # 5 t 0.4 m 4 ce 4 msg 1
+- INFO:Forwarding message (omnetpp::cMessage)tic-0 on gate[0]
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 5
+SH sm 4 sg 1572864 pd 0.1
+ES t 0.5
+CL id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 5 cid 2
+
+E # 6 t 0.5 m 3 ce 5 msg 1
+- INFO:Forwarding message (omnetpp::cMessage)tic-0 on gate[1]
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 6
+SH sm 3 sg 1572865 pd 0.1
+ES t 0.6
+CL id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 6 cid 2
+
+E # 7 t 0.6 m 4 ce 6 msg 1
+- INFO:Forwarding message (omnetpp::cMessage)tic-0 on gate[0]
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 7
+SH sm 4 sg 1572864 pd 0.1
+ES t 0.7
+CL id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 7 cid 2
+
+E # 8 t 0.7 m 3 ce 7 msg 1
+- INFO:Forwarding message (omnetpp::cMessage)tic-0 on gate[0]
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 8
+SH sm 3 sg 1572864 pd 0.1
+ES t 0.8
+CL id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 8 cid 2
+
+E # 9 t 0.8 m 2 ce 8 msg 1
+- INFO:Forwarding message (omnetpp::cMessage)tic-0 on gate[0]
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 9
+SH sm 2 sg 1572864 pd 0.1
+ES t 0.9
+CL id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tic-0 pe 9 cid 2

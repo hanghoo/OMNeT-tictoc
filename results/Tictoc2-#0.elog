@@ -1,0 +1,28 @@
+E # 0 t 0 m 1 ce -1 msg -1
+SB v 1286 rid Tictoc2-0-20201016-13:42:01-3744 b 1000
+KF p -1 c "" s ""
+MC id 1 c omnetpp::cModule t Tictoc2 n Tictoc2 cm 1
+MS id 1 d ""
+MC id 2 c Txc2 t Txc2 pid 1 n tic
+GC m 2 g 0 n in o 0
+GC m 2 g 3 n out o 1
+MS id 2 d i=block/routing,cyan
+MC id 3 c Txc2 t Txc2 pid 1 n toc
+GC m 3 g 0 n in o 0
+GC m 3 g 3 n out o 1
+MS id 3 d i=block/routing,gold
+CC sm 2 sg 3 dm 3 dg 0
+CS sm 2 sg 3 d ""
+CC sm 3 sg 3 dm 2 dg 0
+CS sm 3 sg 3 d ""
+MB sm 1 tm 2 m initialize(0)
+- INFO (Txc2)Tictoc2.tic:Sending initial message
+CM id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictocMsg pe -1
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictocMsg pe 0
+SH sm 2 sg 3 pd 0.1
+ES t 0.1
+CL id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictocMsg pe 0 cid 1
+ME
+MB sm 1 tm 3 m initialize(0)
+ME
+DM id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictocMsg pe 0

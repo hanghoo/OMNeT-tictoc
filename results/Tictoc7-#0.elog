@@ -1,0 +1,27 @@
+E # 0 t 0 m 1 ce -1 msg -1
+SB v 1286 rid Tictoc7-0-20201016-14:42:41-6964 b 1000
+KF p -1 c "" s ""
+MC id 1 c omnetpp::cModule t Tictoc7 n Tictoc7 cm 1
+MS id 1 d ""
+MC id 2 c Txc7 t Txc7 pid 1 n tic
+GC m 2 g 0 n in o 0
+GC m 2 g 3 n out o 1
+MS id 2 d i=block/routing,cyan
+MC id 3 c Txc7 t Txc7 pid 1 n toc
+GC m 3 g 0 n in o 0
+GC m 3 g 3 n out o 1
+MS id 3 d i=block/routing,gold
+CC sm 2 sg 3 dm 3 dg 0
+CS sm 2 sg 3 d ""
+CC sm 3 sg 3 dm 2 dg 0
+CS sm 3 sg 3 d ""
+MB sm 1 tm 2 m initialize(0)
+CM id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n event pe -1
+- INFO (Txc7)Tictoc7.tic:Scheduling first send to t=5.0s
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n event pe 0
+ES t 5
+CM id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tictocMsg pe -1
+ME
+MB sm 1 tm 3 m initialize(0)
+CM id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n event pe -1
+ME
